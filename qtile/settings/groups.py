@@ -18,7 +18,7 @@ groups = [
         Group('  ', layout='columns'),
         Group('  ', layout='columns'),
         Group('  ', matches=[Match(wm_class='discord')], layout='max'),
-        Group('  '),
+        Group('  ', matches=[Match(wm_class='okular')], layout='columns'),
         Group('  ', matches=[Match(wm_class='thunar')]),
         Group('  ', matches=[Match(wm_class='lutris')], layout='max')
         ]
@@ -29,5 +29,5 @@ for i, group in enumerate(groups):
         # Switch to workspace N
         Key([mod], actual_key, lazy.group[group.name].toscreen()),
         # Send window to workspace N
-        Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
+        Key([mod, 'shift'], actual_key, lazy.window.togroup(group.name))
     ])

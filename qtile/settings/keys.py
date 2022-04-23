@@ -8,6 +8,7 @@ dmenu = 'dmenu_run -b -p Ejecutar: -l 5 -nb \'#111111\' -nf \'#FFFFFF\' -sb \'#5
 browser = 'firefox'
 file_manager = 'thunar'
 pdf_viewer = 'okular'
+game = 'lutris'
 
 keys = [
     # ---------- Window config ----------
@@ -70,6 +71,9 @@ keys = [
 
     # PDF Viewer
     Key([mod], 'p', lazy.spawn('okular')),
+    
+    # Gaming Platform
+    Key([mod], 'l', lazy.spawn('lutris')),
 
     # ---------- Hardware config ----------
 
