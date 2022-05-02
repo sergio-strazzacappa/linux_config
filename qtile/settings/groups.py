@@ -17,7 +17,7 @@ groups = [
         Group('  ', matches=[Match(wm_class='firefox')], layout='max'),
         Group('  ', layout='columns'),
         Group('  ', layout='columns'),
-        Group('  ', matches=[Match(wm_class='discord')], layout='max'),
+        Group('  ', matches=[Match(wm_class='discord'), Match(wm_class='telegram-desktop')], layout='max'),
         Group('  ', matches=[Match(wm_class='okular')], layout='columns'),
         Group('  ', matches=[Match(wm_class='thunar')]),
         Group('  ', matches=[Match(wm_class='lutris')], layout='max')

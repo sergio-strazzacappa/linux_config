@@ -1,6 +1,23 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
 
+# HotKeys Used
+# [mod] + h
+# [mod] + l
+# [mod] + j
+# [mod] + k
+# [mod] + Tab
+# [mod] + w
+#
+# [mod] + Return = Terminal
+# [mod] + b = Browser
+# [mod] + m = Menu
+# [mod] + f = File manager
+# [mod] + r = Redshift
+# [mod] + s = Screenshot
+# [mod] + p = PDF Viewer 
+# [mod] + g = Game Platform
+
 mod = 'mod4'
 
 terminal = 'alacritty'
@@ -73,7 +90,7 @@ keys = [
     Key([mod], 'p', lazy.spawn('okular')),
     
     # Gaming Platform
-    Key([mod], 'l', lazy.spawn('lutris')),
+    Key([mod], 'g', lazy.spawn('lutris')),
 
     # ---------- Hardware config ----------
 
