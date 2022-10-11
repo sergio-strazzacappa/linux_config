@@ -1,8 +1,7 @@
 " Disable compatibility with vi wich can cause unexpected issues.
 set nocompatible
 
-" Enable type file detection. Vim will be able to try to detect the type
-" file in use.
+" Enable type file detection. Vim will be able to try to detect the type file in use.
 filetype off
 
 " Set the runtime path to include Vundle and initialize.
@@ -11,23 +10,26 @@ call vundle#begin()
 
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-
-" PLUGINS
-
-" --- THEMES ---
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'valloric/youcompleteme'
+Plugin 'altercation/solarized'
 Plugin 'morhetz/gruvbox'
 
-" --- MARKDOWN ---
+" ---  Markdown Plugins --
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
-
-"let g:vim_markdown_conceal=2
-let vim_markdown_preview_github=0
-let vim_markdown_preview_pandoc=1
-let vim_markdown_preview_browser='Firefox'
-
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='firefox'
 call vundle#end()
+
+filetype plugin indent on
+
+" Enable plugins and load plugins for the detected file type.
+filetype plugin off
 
 " Load and indent file for the detected file type.
 filetype indent on
@@ -50,14 +52,10 @@ set shiftwidth=4
 " Set tab width to 4 columns.
 set tabstop=4
 
-" Set the line widht to 80 characters.
-set textwidth=0
-
 " Do not wrap lines. Allow long lines to extend as far as the line goes.
-set wrap
+set nowrap
 
-" While searching though a file incrementally highlight matching characters
-" as you type.
+" While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
 " Show partial command type in the last line of the screen.
