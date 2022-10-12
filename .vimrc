@@ -17,12 +17,32 @@ Plugin 'VundleVim/Vundle.vim'
 " --- THEMES ---
 Plugin 'morhetz/gruvbox'
 
+" --- FILE SYSTEM MANAGER ---
+Plugin 'preservim/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+"set encoding=utf8
+"set guifont=Ubuntu\ 13
+
+" --- Syntax Check ---
+Plugin 'scrooloose/syntastic'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " --- MARKDOWN ---
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
-"let g:vim_markdown_conceal=2
+let g:vim_markdown_conceal=2
 let vim_markdown_preview_github=0
 let vim_markdown_preview_pandoc=1
 let vim_markdown_preview_browser='Firefox'
