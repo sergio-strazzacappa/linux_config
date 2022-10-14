@@ -1,7 +1,6 @@
 § =============================================================
 §  Comments
 § =============================================================
-
 == Comments.end-of-line comment == nomenu, append ==
 # <CURSOR>
 == Comments.frame == map:cfr, sc:r ==
@@ -16,6 +15,8 @@
 #       RETURNS:  
 #-------------------------------------------------------------------------------
 == Comments.file header == start, map:ch ==
+<CURSOR>
+== Comments.problems == start, map:cpr ==
 #!/bin/bash 
 #===============================================================================
 #
@@ -30,6 +31,8 @@
 #	ARGUMENTOS:
 #
 #	RESULTADO:
+#
+#	TESTS:
 #
 #	AUTOR: |AUTHOR|
 #

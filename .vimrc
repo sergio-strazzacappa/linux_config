@@ -9,13 +9,17 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" *****************************
+" ********** PLUGINS **********
+" *****************************
+
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-" PLUGINS
-
 " --- THEMES ---
 Plugin 'morhetz/gruvbox'
+
+Plugin 'powerline/powerline'
 
 " --- FILE SYSTEM MANAGER ---
 Plugin 'preservim/nerdtree'
@@ -25,8 +29,9 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 "set encoding=utf8
 "set guifont=Ubuntu\ 13
 
-" --- Syntax Check ---
+" --- SYNTAX CHECK ---
 Plugin 'scrooloose/syntastic'
+Plugin 'valloric/youcompleteme'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -36,6 +41,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+Plugin 'tpope/vim-surround'
+
+" ------------------------------------------ BASH ------------------------------------------------ "
+Plugin 'bash-support.vim'
+
+let g:BASH_LineEndCommColDefault=69
+let g:BASH_Executable='/bin/bash'
+let g:BASH_MapLeader=','
+
+" ------------------------------------------------------------------------------------------------ "
+
+Plugin 'wolfgangmehner/awk-support'
 
 " --- MARKDOWN ---
 Plugin 'godlygeek/tabular'
@@ -48,6 +66,10 @@ let vim_markdown_preview_pandoc=1
 let vim_markdown_preview_browser='Firefox'
 
 call vundle#end()
+
+" **********************************
+" **********  END PLUGINS **********
+" **********************************
 
 " Load and indent file for the detected file type.
 filetype indent on
