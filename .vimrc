@@ -5,8 +5,10 @@ set nocompatible
 " file in use.
 filetype off
 
-" Set the runtime path to include Vundle and initialize.
+" Set the runtime path to include Vundle, Powerline and initialize.
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
 call vundle#begin()
 
 " *****************************
@@ -19,7 +21,14 @@ Plugin 'VundleVim/Vundle.vim'
 " --- THEMES ---
 Plugin 'morhetz/gruvbox'
 
+
+" ************************************************************************************************ "
+" --------------------------------------- POWERLINE ---------------------------------------------- "
+" ************************************************************************************************ "
+
 Plugin 'powerline/powerline'
+
+set laststatus=2
 
 " --- FILE SYSTEM MANAGER ---
 Plugin 'preservim/nerdtree'
@@ -44,17 +53,26 @@ let g:syntastic_check_on_wq = 0
 
 Plugin 'tpope/vim-surround'
 
+" ************************************************************************************************ "
 " ------------------------------------------ BASH ------------------------------------------------ "
+" ************************************************************************************************ "
+
 Plugin 'bash-support.vim'
 
 let g:BASH_LineEndCommColDefault=69
 let g:BASH_Executable='/bin/bash'
 let g:BASH_MapLeader=','
+let g:BASH_InsertFileHeader='no'
 
-" ------------------------------------------------------------------------------------------------ "
+" ************************************************************************************************ "
+" ---------------------------------------- AWK --------------------------------------------------- "
+" ************************************************************************************************ "
 
 Plugin 'wolfgangmehner/awk-support'
 
+let g:Awk_LineEndCommColDefault=69
+let g:Awk_MapLeader=','
+let g:Awk_InsertFileHeader='no'
 " --- MARKDOWN ---
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'

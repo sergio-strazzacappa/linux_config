@@ -15,9 +15,11 @@
 #       RETURNS:  
 #-------------------------------------------------------------------------------
 == Comments.file header == start, map:ch ==
+#! /bin/bash
+
 <CURSOR>
 == Comments.problems == start, map:cpr ==
-#!/bin/bash 
+#! /bin/bash 
 #===============================================================================
 #
 #	ARCHIVO: |FILENAME|
