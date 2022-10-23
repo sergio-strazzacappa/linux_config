@@ -1,24 +1,181 @@
-" Disable compatibility with vi wich can cause unexpected issues.
+" ------------------------------------------------------------------------------------------------ "
+" Index:
+" 	1. General settings
+" 	2. Plugins (Vundle)
+" 	3. Plugins settings
+"	4. Mappings
+" ------------------------------------------------------------------------------------------------ "
+
+" ------------------------------------------------------------------------------------------------ "
+" 1. General settings
+" ------------------------------------------------------------------------------------------------ "
+
+" Disable vi compatibility
 set nocompatible
 
+" Lines of memory to remember
+set history=1000
+
+" Leader key to add extra key combination
+
+" Time delay on the <Leader> key
+set timeoutlen=3000
+set ttimeoutlen=100
+
+set updatetime=250
+
+" Open help in a vertical window
+cnoreabbrev help vert help
+
 " Enable type file detection. Vim will be able to try to detect the type file in use.
-filetype off
+filetype on
 
-" ************************************************************************************************ "
-" ---------------------------------------- PLUGINS  ---------------------------------------------- "
-" ************************************************************************************************ "
+" Load and indent file for the detected file type.
+filetype indent on
 
-" ************************************************************************************************ "
-" ----------------------------------------- VUNDLE ----------------------------------------------- "
-" ************************************************************************************************ "
+"------------------------------------------------------------------------------------------------- "
+" 2. Plugins (Vundle)
+" ------------------------------------------------------------------------------------------------ "
 
-" Set the runtime path to include Vundle and initialize.
 set rtp+=~/.vim/bundle/Vundle.vim
 
+" List of plugins installed
 call vundle#begin()
 
-" Let Vundle manage Vundle.
-Plugin 'VundleVim/Vundle.vim'
+	" Plugin manager
+	Plugin 'VundleVim/Vundle.vim'
+
+	" Python support
+	Plugin 'dense-analysis/ale'		" Complete tool analysis
+	Plugin 'davidhalter/jedi-vim' 	" Autocomplete
+	Plugin 'nvie/vim-flake8'
+
+	" Markdown support
+	Plugin 'godlygeek/tabular'
+	Plugin 'plasticboy/vim-markdown'
+	Plugin 'JamshedVesuna/vim-markdown-preview'
+
+" ------------------------------------------------------------------------------------------------ "
+" 3. Plugins settings
+" ------------------------------------------------------------------------------------------------ "
+
+" --- Languages --- "
+
+" Python settings
+" ----------------------- "
+" -- ALE Configuration -- "
+" ----------------------- "
+" *** General *** "
+let g:ale_close_preview_on_insert				= 0
+let g:ale_cursor_detail							= 0
+let g:ale_disable_lsp							= 1
+let g:ale_echo_cursor							= 1
+let g:ale_echo_delay							= 10
+let g:ale_echo_msg_error_str					= 'Error'
+let g:ale_echo_msg_info_str						= 'Info'
+let g:ale_echo_msg_warning_str					= 'Warning'
+let g:ale_echo_msg_format						= '%code: %%s'
+let g:ale_enabled								= 1
+let g:ale_floating_preview						= 0
+let g:ale_history_enabled						= 1
+let g:ale_history_log_output					= 1
+let g:ale_list_vertical							= 0 
+let g:ale_max_buffer_history_size				= 10
+let g:warn_about_trailing_blank_lines			= 1
+let g:warn_about_trailing_whitespaces			= 1
+
+" *** Linter *** "
+let g:ale_lint_delay							= 300
+let g:ale_lint_on_enter							= 0 
+let g:ale_lint_on_filetype_changed				= 0
+let g:ale_lint_on_save							= 1
+let g:ale_lint_on_text_changed					= 'never' 
+let g:ale_lint_on_insert_leave					= 0
+let g:ale_linter_aliases						= {}
+let g:ale_linters								= {'python': ['flake8']}
+let g:ale_linters_explicit						= 1
+let g:ale_linters_ignore						= {}
+
+" *** Completion *** "
+let g:ale_completion_enabled					= 0
+
+" ------------------------ "
+" -- JEDI Configuration -- "
+" ------------------------ "
+let g:jedi#max_doc_height						= 15
+let g:jedi#auto_initialization					= 1
+let g:jedi#auto_vim_configuration				= 1
+let g:jedi#popup_on_dot							= 1 
+let g:jedi#popup_select_first					= 1
+let g:jedi#auto_close_doc						= 1
+let g:jedi#show_call_signatures					= 1
+let g:jedi#show_call_signatures_delay			= 500
+let g:jedi#use_tabs_not_buffers					= 0
+let g:jedi#squelch_py_warning					= 0
+let g:jedi#completions_enabled					= 1
+let g:jedi#use_splits_not_buffers				= 'right'
+let g:jedi#force_py_version						= 'auto'
+let g:jedi#smart_auto_mappings					= 1
+let g:jedi#use_tag_stack						= 0
+let g:jedi#environment_path						= 'auto'
+let g:jedi#added_sys_path						= [] 
+let g:jedi#case_insensitive_completion			= 1
+
+" --------------------------- "
+" -- FLAKE 8 Configuration -- "
+" --------------------------- "
+let g:flake8_quickfix_location					= 'below'
+let g:flake8_quickfix_height					= 10
+let g:flake8_show_quickfix						= 1 
+let g:flake8_show_in_gutter						= 1
+let g:flake8_show_in_file						= 1
+let g:flake8_max_markers						= 500
+let g:flake8_error_marker						= 'EE'
+let g:flake8_warning_marker						= 'WW'
+let g:flake8_pyflake_marker						= ''
+let g:flake8_complexity_marker					= ''
+let g:flake8_naming_marker						= ''
+
+" Markdown settings
+let g:vim_markdown_conceal						= 2
+let vim_markdown_preview_toggle					= 0
+let vim_markdown_preview_pandoc					= 1
+
+" Markdown resalta la sintaxis del código escrito en los siguientes lenguajes de programación: Bash, Python
+let g:vim_markdown_fenced_languages				= [
+													\'bash=sh',
+													\'python=py'
+												 \] " [name=ext] => use: ```name code ```
+
+" ------------------------------------------------------------------------------------------------ "
+" 3. Mappings
+" ------------------------------------------------------------------------------------------------ "
+let mapleader									= ' '
+
+nnoremap <F12>	:source ~/.vimrc<CR>
+nnoremap <F3>	:noh<CR>
+
+" Autocomplete
+let g:jedi#completions_command					= '<C-Space>'
+let g:jedi#goto_command							= '<leader>d'
+let g:jedi#goto_assignment_command				= '<leader>g'
+let g:jedi#goto_stubs_command					= '<leader>s'
+let g:jedi#documentation_command				= 'K'
+let g:jedi#rename_command						= '<leader>r'
+let g:jedi#usages_command						= '<leader>n'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 " ************************************************************************************************ "
 " ---------------------------------------- THEMES ------------------------------------------------ "
@@ -107,19 +264,10 @@ let g:NERDTreePatternMatchHighlightColor['.*_spec.rb$']=s:rspec_red " sets the c
 let g:WebDevIconsDefaultFolderSymbolColor=s:beige " sets the color for folders that did not match any rule
 let g:WebDevIconsDefaultFileSymbolColor=s:blue " sets the color for files that did not match any rule
 
-" --- SYNTAX CHECK ---
-Plugin 'scrooloose/syntastic'
-Plugin 'valloric/youcompleteme'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
+" ************************************************************************************************ "
+" ---------------------------------- SYNTAX CHECK ------------------------------------------------ "
+" ************************************************************************************************ "
+"Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-surround'
 
 " ************************************************************************************************ "
@@ -130,7 +278,7 @@ Plugin 'bash-support.vim'
 
 let g:BASH_LineEndCommColDefault=69
 let g:BASH_Executable='/bin/bash'
-let g:BASH_MapLeader=','
+"let g:BASH_MapLeader=' '
 let g:BASH_InsertFileHeader='no'
 
 " ************************************************************************************************ "
@@ -140,22 +288,8 @@ let g:BASH_InsertFileHeader='no'
 Plugin 'wolfgangmehner/awk-support'
 
 let g:Awk_LineEndCommColDefault=69
-let g:Awk_MapLeader=','
+"let g:Awk_MapLeader=' '
 let g:Awk_InsertFileHeader='no'
-
-" ************************************************************************************************ "
-" ------------------------------------- MARKDOWN ------------------------------------------------- "
-" ************************************************************************************************ "
-
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-
-let g:vim_markdown_conceal=2
-let g:vim_markdown_fenced_languages=['bash=sh'] " [name=ext] => use: ```name code ```
-
-let vim_markdown_preview_github=0
-let vim_markdown_preview_pandoc=1
 
 call vundle#end()
 
@@ -163,8 +297,6 @@ call vundle#end()
 " ------------------------------------ END PLUGINS  ---------------------------------------------- "
 " ************************************************************************************************ "
 
-" Load and indent file for the detected file type.
-filetype indent on
 
 " Turn syntax highlightning on.
 syntax on
@@ -181,7 +313,7 @@ set cursorline
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
 
-" Set shift witdh to 4 spaces.
+" Set shift width to 4 spaces.
 set shiftwidth=4
 
 " Set tab width to 4 columns.
@@ -195,6 +327,8 @@ set wrap
 
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
+
+set hlsearch
 
 " Show partial command type in the last line of the screen.
 set showmode
