@@ -2,19 +2,24 @@
 
 ## Archivos
 
-- *~/.vimrc* -> Archivo de configuración de vim
-- *~/.vim/bundle* -> Plugins
+- *~/.vimrc*
+- *~/.vim/bundle*
+- *~/.bashrc*
 
 ## Paquetes instalados
 
 - **vim:**
 	- Plugins:
-		- **Vundle**
+		- Vundle
+		- Python
+			- ale
+			- jedi-vim
+			- vim-flake8
+		- Markdown
+			- tabular
+			- vim-markdown
+			- vim-markdown-preview
 		- **gruvbox**
-		- **tabular**
-		- **vim-markdown**
-		- **vim-markdown-preview**
-		- syntastic
 		- vim-surround
 		- **NerdTree**
 		- **vim-devicons** \
